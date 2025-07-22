@@ -210,7 +210,7 @@ def extract(args: Namespace) -> str:
 
     # ---- Build MusicXML ---- #
     logger.info("Building MusicXML document")
-    basename = os.path.basename(img_path).replace(".jpg", "").replace(".png", "")
+    basename = os.path.basename(img_path).replace('.'+os.path.basename(img_path).split('.')[-1],"")
     builder = MusicXMLBuilder(title=basename.capitalize())
     builder.build()
     xml = builder.to_musicxml()
